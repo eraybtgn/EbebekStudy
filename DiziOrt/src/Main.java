@@ -1,17 +1,31 @@
 public class Main {
     public static void main(String[] args) {
-        //Dizideki sayıların harmonik ortalamasını hesaplayan programı yazınız.
-        //Harmonik Ortalama formülü : n (eleman sayısı) / elemanların harmonik serisi
-        //Harmonik Seri Formülü =  1+(1/2)+(1/3)...+(1/n)
+        var in = new Scanner(System.in);
 
-        int numbers [] = {1,2,3,4,5};
-        double sum=0;
-        for(int i : numbers) {
-            sum += (1.0 / i );
+        int greatestSmaller = Integer.MIN_VALUE;
+        int smallestGreater = Integer.MAX_VALUE;
+
+        int[] arr ={56, 34, 1, 8, 101, -2, -33, 15, 12, 788, -1, -778, 2, 0};
+
+        System.out.print("The array= "+ Arrays.toString(arr));
+        System.out.println();
+        System.out.print("Enter a number: ");
+        int n = in.nextInt();
+
+        for(int i : arr){
+            if(i < n){
+                if(i > greatestSmaller){
+                    greatestSmaller =i;
+                }
+            }else if(i > n){
+                if(i < smallestGreater){
+                    smallestGreater = i;
+                }
+            }
         }
-        //System.out.println(sum);
 
-        double harmonicAverage = numbers.length / sum;
-        System.out.println("Harmonik Ortalama = " + harmonicAverage);
+        System.out.println("The greatest number smaller than the number you entered:"+greatestSmaller);
+        System.out.println("The smallest number greater than the number you entered:"+smallestGreater);
     }
+
 }
